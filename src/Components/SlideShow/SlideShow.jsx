@@ -17,6 +17,7 @@ return ( <div className={styles.title}> <h2>{title}</h2>
 
 
   <div className={styles.row}>
+    {/* swiper used for horizontal scrolling */}
     <Swiper
       modules={[Navigation]}
       navigation

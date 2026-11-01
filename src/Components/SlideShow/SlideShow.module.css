@@ -3,7 +3,7 @@
 }
 
 /* Make wrapper stable */
-.Row {
+Row {
     position: relative;
 }
 

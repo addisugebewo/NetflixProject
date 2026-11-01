@@ -1,4 +1,3 @@
-
 import styles from "./DisplayRow.module.css";
 import SlideShow from "../SlideShow/SlideShow";
 import { Movieinstance } from "../../Utility/Movieinstance.js";
@@ -36,6 +35,7 @@ function DisplayRow() {
         romanceRes,
         docRes,
       ] = await Promise.all([
+        // Promise.all is used to run multiple asynchronous operations in parallel and wait for all of them to complete. In this case, it is used to fetch data for different movie categories from the API simultaneously.
         Movieinstance.get(requests.fetchTrending),
         Movieinstance.get(requests.fetchNetflixOriginals),
         Movieinstance.get(requests.fetchTopRatedMovies),
@@ -46,9 +46,9 @@ function DisplayRow() {
         Movieinstance.get(requests.fetchDocumentaries),
       ]);
 
-      // Save the results in state
-      setmovies({
-        trending: trendingRes.data.results,
+      // Save the results in state 
+      setmovies({//
+        trending: trendingRes.data.results,//
         netflixOriginal: netflixOriginalRes.data.results,
         topRated: topRatedRes.data.results,
         action: actionRes.data.results,
@@ -63,6 +63,7 @@ function DisplayRow() {
   };
 
   return (
+    //
     <div className={styles.mainwrapper}>
       <SlideShow title="Netflix Trending" Movies={movies.trending} />
       <SlideShow title="Netflix Originals" Movies={movies.netflixOriginal} />
@@ -77,4 +78,3 @@ function DisplayRow() {
 }
 
 export default DisplayRow;
-

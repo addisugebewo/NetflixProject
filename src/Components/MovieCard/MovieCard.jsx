@@ -4,7 +4,7 @@ import { BsPlayCircle } from "react-icons/bs";
 import { GoCheckCircleFill } from "react-icons/go";
 import { IoIosArrowDropdownCircle } from "react-icons/io";
 
-const IMAGE_BASE = "https://image.tmdb.org/t/p/w500";
+const IMAGE_BASE = "https://image.tmdb.org/t/p/w500";//used to construct the full URL for movie poster and backdrop images. The base URL is provided by TMDB, and the specific image path is appended to it to retrieve the desired image.
 
 function MovieCard({ Movie }) {
 const genres = ["Adventure", "Action", "Thriller"];
@@ -27,7 +27,7 @@ alt={Movie?.title || Movie?.name || "Movie poster"}
     <img
       className={styles.Hoverimg}
       src={
-        Movie?.backdrop_path
+        Movie?.backdrop_path// used to check if the movie object has a backdrop_path property. If it does, it constructs the full URL for the backdrop image using the IMAGE_BASE and Movie.backdrop_path. If not, it checks if the movie object has a poster_path property. If it does, it constructs the full URL for the poster image using the IMAGE_BASE and Movie.poster_path. If neither property is available, it falls back to a placeholder image located at "/placeholder.png".
           ? `${IMAGE_BASE}${Movie.backdrop_path}`
           : Movie?.poster_path
             ? `${IMAGE_BASE}${Movie.poster_path}`
@@ -53,12 +53,12 @@ alt={Movie?.title || Movie?.name || "Movie poster"}
         size={20}
       />
 
-      <GoCheckCircleFill
+      { <GoCheckCircleFill
         className={styles.CircleButton}
         color="white"
         size={20}
-      />
-
+      /> 
+      }
       <IoIosArrowDropdownCircle
         className={styles.CircleButtonSmall}
         color="white"

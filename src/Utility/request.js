@@ -15,3 +15,4 @@ const requests = {
 };
 export default requests;
 
+    //  --url 'https://api.themoviedb.org/3/account/null/rated/movies?API_KEY=d169f3ee82b2732e019445944d2a3911language=en-US&page=1&sort_by=created_at.asc'

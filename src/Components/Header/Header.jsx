@@ -1,26 +1,26 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from "react";// useEffect and useState are imported from React to manage state and side effects in the component.
 import styles from "./Header.module.css";
 import logo from "../../assets/image/logo.png";
-import { Link } from "react-router";
+import { Link } from "react-router";// Link is imported from react-router to enable navigation between different routes in the application.
 // 1. Capitalized Search here
-import { Search, Bell, User, ChevronDown } from "lucide-react";
+import { Search, Bell, User, ChevronDown } from "lucide-react";// Search, Bell, User, and ChevronDown icons are imported from lucide-react for use in the header component.
 
 const Header = () => {
   const [IsSearchOpen, setIsSearchOpen] = useState(false)
   const [IsProfileOpen, setIsProfileOpen] = useState(false);
  // for blur
- const [IsScrolled, setIsScrolled] = useState(false);
+ const [IsScrolled, setIsScrolled] = useState(false);// IsScrolled state is used to track whether the user has scrolled down the page or not.
    useEffect(() => {
-  const handleScroll = () => {
+  const handleScroll = () => {// handleScroll function is defined to update the IsScrolled state based on the scroll position of the window.
     if (window.scrollY > 50) {
       setIsScrolled(true);
     } else {
       setIsScrolled(false);
     }
   };
-  window.addEventListener("scroll", handleScroll);
+  window.addEventListener("scroll", handleScroll);// An event listener is added to the window object to listen for the scroll event and call the handleScroll function when the user scrolls.
     return () => {
-    window.removeEventListener("scroll", handleScroll);
+    window.removeEventListener("scroll", handleScroll);// A cleanup function is returned to remove the event listener when the component is unmounted, preventing memory leaks.
   };
 }, []);
 
